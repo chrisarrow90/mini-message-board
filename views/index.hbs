@@ -1,8 +1,13 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+<a href="/new">Add a new message!</a>
+<br>
+<br>
+
 {{#each messages}}
   <p>{{user}}: {{text}}</p>
   <small>Date: {{added}}</small>
   <br />
 {{/each}}
+
