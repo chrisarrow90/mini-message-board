@@ -14,6 +14,10 @@ const messages = [
   }
 ];
 
+function isValidPost(post) {
+  return post.messageUser && post.messageUser.toString().trim() !== '' && post.messageText && post.messageText.toString().trim() !== '';
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Mini Messageboard', messages: messages});
@@ -26,12 +30,16 @@ router.get('/new', function(req, res, next) {
 
 /* POST message */
 router.post('/new', function(req, res, next) {
-  // add new message to the array
-  messages.push({
-    text: req.body.messageText,
-    user: req.body.messageUser,
-    added: new Date()
-  })
+
+  // validation - need to add an else statement (hey! please enter a name and message)
+  if (isValidPost(req.body)) {
+    // add new message to the array
+    messages.push({
+      text: req.body.messageText.toString().trim(),
+      user: req.body.messageUser.toString().trim(),
+      added: new Date()
+    })
+  }
   // send user back to homepage
   res.redirect('/')
 })

@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+p {
+  margin-bottom: 0px;
+}
+
+table {
+  /* width: 50%; */
+  /* margin: 0 auto; */
+}
+
+.message-form {
+  width: 50%
+}
